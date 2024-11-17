@@ -43,14 +43,14 @@ public class CustomerOrderTest {
         assertEquals(10.00, order.getTotalAmount(), 0.01);
     }
 
+    // TODO: Test low stock alert
+    // Reduce the stock of an item and verify that the system triggers a low stock alert when the quantity falls below the threshold.
 
-	// ToDo: Test inventory update when an order is placed
-	// Add an item to the order and reduce its stock. Verify that the inventory count is updated correctly.
-
-
-	// ToDo: Test low stock alert
-	// Reduce the stock of an item and verify that the system triggers a low stock alert when the quantity falls below the threshold.
-
+    @Test
+    public void testLowStockAlert() {
+        inventory.updateStock("Garlic Bread", 13);  // Only 2 left after this
+        assertTrue(inventory.isLowStock("Garlic Bread"));
+    }
 
 	// ToDo: Test order status updates
 	// Set the status of the order and verify that the status is updated correctly.
